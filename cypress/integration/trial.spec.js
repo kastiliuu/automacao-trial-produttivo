@@ -185,8 +185,10 @@ describe('Testes automatizados do trial Produttivo', () => {
         cy.get('input[type="password"]').should('have.value', `${password}`);
         cy.get('span:contains("Iniciar teste")').click();
         cy.get('.input--error-message').contains('Campo Obrigatório');
+        cy.wait(50);
       });
 
+//  1 - Este teste realiza o fluxo completo de cadastro até o sucesso e a tela de configuração
       it('Validando o caminho feliz do teste e concluindo o cadastro"', () => {
         const fieldValues = ["11", "12", "13", "14", "15", "16", "17", "18", "19", "21", "22", "24", "27", "28", "31", "32", "33", "34", "35", "37", "38", "41", "42", "43", "44", "45", "46", "47", "48", "49", "51", "53", "54", "55", "61", "62", "63", "64", "65", "66", "67", "68", "69", "71", "73", "74", "75", "77", "79", "81", "82", "83", "84", "85", "86", "87", "88", "89", "91", "92", "93", "94", "95", "96", "97", "98", "99"];
         const randomValue = fieldValues[Math.floor(Math.random() * fieldValues.length)];
@@ -207,6 +209,7 @@ describe('Testes automatizados do trial Produttivo', () => {
         cy.get('input[type="password"]').type(`${password}`);
         cy.get('input[type="password"]').should('have.value', `${password}`);
         cy.get('span:contains("Iniciar teste")').click();
+        cy.wait(3000);
         cy.url().should('eq', 'https://app.produttivo.com.br/accounts/initial_setup')
       });
 })
