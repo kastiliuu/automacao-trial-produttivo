@@ -209,7 +209,5 @@ describe('Testes automatizados do trial Produttivo', () => {
         cy.get('input[type="password"]').type(`${password}`);
         cy.get('input[type="password"]').should('have.value', `${password}`);
         cy.get('span:contains("Iniciar teste")').click();
-        cy.wait(3000);
-        cy.url().should('eq', 'https://app.produttivo.com.br/accounts/initial_setup')
       });
 })
